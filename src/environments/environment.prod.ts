@@ -1,3 +1,4 @@
 export const environment = {
-  production: true
+  production: true,
+  apiUrl: 'https://express-crud-amowel.c9users.io/api/'
 };

@@ -7,11 +7,11 @@ const cors = require('cors');
 const api = require('./routes');
 const app = express();
 app.use(cors());
-const port = process.env.Port || 3000;
+const port = config.port || 3000;
 app.set('secret', config.secret);
 app.use(morgan('dev'));
 app.use(express.static(path.join(__dirname, '../dist')));
-
+console.log(process.env.Port);
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 
