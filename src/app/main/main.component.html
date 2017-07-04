@@ -1,0 +1,30 @@
+<div class="container">
+  <div class="row">
+    <table class="table custab table-hover col-12">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>First Name</th>
+          <th>Last Name</th>
+          <th>Email</th>
+          <th>Date</th>
+          <th>Role</th>
+          <th *ngIf="currentUser.role === 'admin'">Password</th>
+          <th *ngIf="currentUser.role === 'admin'" class="text-center">Action</th>
+      </tr>
+      </thead>
+      <tr *ngFor="let user of userService.users  | paginate: { itemsPerPage: pagination, currentPage: page, totalItems: totalItems}">
+        <td>{{ user._id}}</td>
+        <td>{{ user.firstName }}</td>
+        <td>{{ user.lastName }}</td>
+        <td>{{ user.email }}</td>
+        <td>{{ user.date }}</td>
+        <td>{{ user.role }}</td>
+        <td *ngIf="currentUser.role === 'admin'">{{ user.password }}</td>
+        <td class="text-center"><a *ngIf="currentUser.role === 'admin'" class='btn btn-info btn-sm' (click)="openModal(user)"><span class="glyphicon glyphicon-edit"></span> Edit</a> <a *ngIf="currentUser.role === 'admin'" class="btn btn-danger btn-sm" (click)="deleteUser(user)"><span class="glyphicon glyphicon-remove"></span> Del</a></td>
+      </tr>
+    </table>
+
+    <pagination-controls *ngIf="IsItemsToPaginate()" (pageChange)="page = $event; updateUsers()"></pagination-controls>
+  </div>
+</div>

@@ -1,0 +1,11 @@
+
+div#fullpage{
+  height: 100vh;
+}
+md-tab-group{
+  box-shadow: 0 0 0 1px #e5e5e5;
+  background-color: #FAFAFA;
+  color:white !important;
+  font-size: 1rem !important;
+}
+

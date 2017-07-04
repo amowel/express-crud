@@ -1,0 +1,23 @@
+<div id="main">
+  <div class="container">
+    <form action="">
+    <md-card>
+      <div class="row justify-content-center">
+      <md-card-content class="col-10 col-lg-8">
+        <md-input-container>
+            <input mdInput placeholder="email" type="email" [(ngModel)]="model.email" name="email">
+          </md-input-container>
+        </md-card-content>
+        <md-card-content class="col-10 col-lg-8 ">
+          <md-input-container  >
+            <input mdInput placeholder="password" type="password" [(ngModel)] ="model.password" name="password">
+          </md-input-container>
+        </md-card-content>
+      </div>
+      <md-card-actions>
+        <button md-button (click)="login()">SUBMIT</button>
+      </md-card-actions>
+    </md-card>
+    </form>
+  </div>
+</div>

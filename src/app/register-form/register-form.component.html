@@ -1,0 +1,51 @@
+<div id="main" (click)="validate(passwordConfirm)">
+<div class="container" (mousemove)="validate(passwordConfirm)">
+  <md-card>
+    <md-card-header>
+    </md-card-header>
+    <form action="" #form="ngForm" name="form">
+    <div class="row justify-content-center" (mouseenter)="validate(passwordConfirm)">
+      <md-card-content class="col-10 col-lg-8 ">
+        <md-input-container>
+          <input mdInput [(ngModel)]="user.firstName" name="firstName" placeholder="First name" pattern="^.{2,60}$">
+          <md-error>First name should contain from 2 to 60 symbols</md-error>
+        </md-input-container>
+      </md-card-content>
+      <md-card-content class="col-10 col-lg-8 ">
+        <md-input-container  >
+          <input mdInput [(ngModel)]="user.lastName" placeholder="Last name" name="lastName" pattern="^.{2,60}$">
+          <md-error>Last name should contain from 2 to 60 symbols</md-error>
+        </md-input-container>
+      </md-card-content>
+      <md-card-content class="col-10 col-lg-8 ">
+        <md-input-container  >
+          <input mdInput  [(ngModel)]="user.email"  placeholder="email" type="email" name="email" pattern="[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?" required>
+          <md-error>Email should be valid and contain maximum 100 symbols</md-error>
+        </md-input-container>
+      </md-card-content>
+      <md-card-content class="col-10 col-lg-8 ">
+        <md-input-container>
+          <input mdInput  [(ngModel)]="user.password"  placeholder="password" type="password" name="password" pattern=".{4,8}$" (keyup)="validate(passwordConfirm)">
+          <md-error>Password should contain from 4 to 8 symbols</md-error>
+        </md-input-container>
+      </md-card-content>
+      <md-card-content class="col-10 col-lg-8 " (mouseleave)="validate(passwordConfirm)">
+          <md-input-container >
+          <input mdInput  [(ngModel)]="confirmPassword" placeholder="confirm password" [ngModelOptions]="{standalone: true}" name="confirmPassword" type="password" required #passwordConfirm (keyup)="validate(passwordConfirm)" (blur)="validate(passwordConfirm)" pattern="^.{2, 60}$">
+          <md-error  *ngIf="!(user.password===confirmPassword)">Passwords should match</md-error>
+        </md-input-container>
+      </md-card-content>
+      <md-card-content class="col-10 col-lg-8 ">
+        <md-input-container  >
+          <input mdInput [(ngModel)]="user.date" placeholder="Date" name="date" type="date">
+        </md-input-container>
+      </md-card-content>
+    </div>
+    </form>
+    <md-card-actions>
+      <button type="submit" (mouseover)="validate(passwordConfirm)" [disabled]="!(form.valid && user.password===confirmPassword)" md-button (click)="postUser()">SUBMIT</button>
+    </md-card-actions>
+  </md-card>
+
+</div>
+</div>

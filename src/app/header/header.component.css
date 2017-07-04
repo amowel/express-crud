@@ -1,0 +1,37 @@
+md-tab-group{
+  box-shadow: 0 0 0 1px #e5e5e5;
+  background-color: #FAFAFA;
+  color:white !important;
+  font-size: 1rem !important;
+}
+
+@media (min-width: 576px) {
+  div#main{
+    width: 100vw;
+    margin:0 auto;
+  }
+}
+
+
+@media (min-width: 768px) {
+  div#main{
+    width: 100vw;
+    margin:0 auto;
+  }
+}
+
+
+@media (min-width: 992px) {
+  div#main{
+    width: 80vw;
+    margin:0 auto;
+  }
+}
+
+
+@media (min-width: 1200px) {
+  div#main{
+    width: 60vw;
+    margin:0 auto;
+  }
+}
